@@ -41,3 +41,16 @@ export async function updateInterested(userId, eventId) {
 
     }
 }
+export async function UpdateGoing(eventId, userId) {
+    // console.log(eventId);
+    // const event = await eventModel.findById(eventId)
+    // if (event) {
+    //     console.log(event.lean());
+    //     event.going_ids.push(new mongoose.Types.ObjectId(userId))
+    //     event.save()
+    // }
+    const event = await eventModel.findById(eventId);
+    event.going_ids.push(new mongoose.Types.ObjectId(userId));
+    event.save();
+
+}

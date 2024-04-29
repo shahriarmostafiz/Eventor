@@ -1,8 +1,13 @@
-import React from 'react';
+"use client"
 
-const PaymentForm = () => {
+import { handleGoing } from "@/actions";
+import useAuth from "@/hooks/useAuth";
+
+const PaymentForm = ({ eventId }) => {
+    const { auth } = useAuth()
+    // console.log(eventId);
     return (
-        <form>
+        <form action={() => handleGoing(eventId, auth)}>
             <div className="my-4 space-y-2">
                 <label htmlFor="name" className="block">
                     Name

@@ -1,6 +1,7 @@
 "use server"
 
-import { findUserByCred, registerUser, updateInterested } from "@/db/queries"
+import { UpdateGoing, findUserByCred, registerUser, updateInterested } from "@/db/queries"
+import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
 export async function registration(formData) {
@@ -20,13 +21,7 @@ export async function loginAuthentication(formData) {
     } catch (error) {
         throw error
     }
-    async function handleInterested(eventId, userId) {
-        try {
-            await updateInterested(userId, eventId)
-        } catch (error) {
-            throw error
-        }
-    }
+
 
     // if (found) {
     //     redirect("/")
@@ -34,5 +29,24 @@ export async function loginAuthentication(formData) {
     // else {
     //     throw new Error(`User with the email ${formData.get(email)} is not found `)
     // }
+
+}
+export async function handleInterest(eventId, userId) {
+    try {
+        await updateInterested(userId.toString(), eventId)
+    } catch (error) {
+        throw error
+    }
+    revalidatePath("/")
+}
+export async function handleGoing(eventId, user) {
+    // console.log(eventId);
+    try {
+        await UpdateGoing(eventId, user._id.toString())
+    } catch (error) {
+        throw error
+    }
+    revalidatePath("/")
+    redirect("/")
 
 }

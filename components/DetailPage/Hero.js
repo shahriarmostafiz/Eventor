@@ -32,7 +32,7 @@ const Hero = ({ event }) => {
                         <span>{event.going_ids.length} Going</span>
                     </div>
                 </div>
-                <ActionButton fromDetails={true} />
+                <ActionButton eventId={event.id} interestedIds={event.interested_ids} goingIds={event.going_ids} fromDetails={true} />
                 {/* <div className="w-full flex gap-4 mt-4 flex-1 ">
                     <button className="w-full">Interested</button>
                     <button className="w-full">Going</button>
