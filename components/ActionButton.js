@@ -1,7 +1,8 @@
+"use client"
 import Link from 'next/link';
 import React from 'react';
 
-const ActionButton = ({ fromDetails }) => {
+const ActionButton = ({ eventId, interestedIds, fromDetails }) => {
     return (
         <div className={`w-full flex gap-4 mt-4 ${fromDetails && "flex-1"}`}>
             {/* bg-indigo-600 indicating Active */}

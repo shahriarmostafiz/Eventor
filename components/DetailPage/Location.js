@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Location = () => {
+const Location = ({ event }) => {
     return (
         <div className="overflow-hidden rounded-lg col-span-2 bg-[#242526]">
             <div className="w-full">
@@ -16,7 +16,7 @@ const Location = () => {
             </div>
             <div className="p-4">
                 <p className="text-[#9C9C9C] text-base mt-1">
-                    Rangpur, Dhaka, Bangladesh, Rangpur, Bangladesh
+                    {event.location}
                 </p>
             </div>
         </div>

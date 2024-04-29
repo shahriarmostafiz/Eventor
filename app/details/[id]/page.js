@@ -1,17 +1,20 @@
 import Details from '@/components/DetailPage/Details';
 import Hero from '@/components/DetailPage/Hero';
 import Location from '@/components/DetailPage/Location';
+import { getAEvent } from '@/db/queries';
 import React from 'react';
 
-const page = () => {
+const page = async ({ params: { id } }) => {
+    const event = await getAEvent(id)
+    console.log(event);
     return (
-        <div>
-            <Hero />
+        <>
+            <Hero event={event} />
             <div className="grid grid-cols-5 gap-12 my-12">
-                <Details />
-                <Location />
+                <Details event={event} />
+                <Location event={event} />
             </div>
-        </div>
+        </>
     );
 };
 
