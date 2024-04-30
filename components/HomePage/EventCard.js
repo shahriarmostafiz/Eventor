@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import ActionButton from '../ActionButton';
 import Link from 'next/link';
+import EventSchemaScript from '../EventSchemaScript';
 /**
  *  id,: '662d3bb3cf67b7d698b0bac9',
     name,: 'GITEX Technology Week',
@@ -25,8 +26,9 @@ const EventCard = ({ aEvent }) => {
     return (
         <div className="overflow-clip rounded-md flex flex-col bg-[#242526]">
             <div className='flex-1 relative max-h-60 overflow-hidden  '>
-                <div className="absolute inset-0 bg-blue-400 backdrop-filter opacity-5 backdrop-blur-lg"></div>
+                <div className="absolute inset-0 bg-gray-600 backdrop-filter opacity-20 backdrop-blur-lg "></div>
                 <div className="flex justify-center items-center ">
+                    <EventSchemaScript event={aEvent} />
                     <Image
                         src={imageUrl}
                         alt="Event 1"

@@ -1,6 +1,7 @@
 import PaymentForm from '@/components/PaymentPage/PaymentForm';
 import React from 'react';
 
+
 const page = ({ params: { eventId } }) => {
     return (
         <div className="bg-[#242526] p-6 rounded-lg max-w-xl mx-auto my-12">
